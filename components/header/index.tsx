@@ -87,14 +87,17 @@ const Header: React.FC = () => {
             >
               Any week
             </button>
-            <div
-              className="flex items-center"
-              onClick={() => setClickedButton('2')}
-            >
-              <button className="font-semibold text-[#717171] px-5">
+            <div className="flex items-center">
+              <button
+                className="font-semibold text-[#717171] px-5"
+                onClick={() => setClickedButton('4')}
+              >
                 Add guests
               </button>
-              <div className="bg-[#ff385c] w-8 h-8 rounded-full flex items-center justify-center">
+              <div
+                className="bg-[#ff385c] w-8 h-8 rounded-full flex items-center justify-center"
+                onClick={() => setClickedButton('1')}
+              >
                 <AiOutlineSearch size={18} cursor="pointer" color="white" />
               </div>
             </div>
