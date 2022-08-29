@@ -28,7 +28,15 @@
     overflow: initial !important;
   }
 
-  .ant-tabs-ink-bar{
+  .ant-tabs-ink-bar {
     @apply !bg-black;
+  }
+
+  .ant-picker-dropdown {
+    @apply !left-[145px];
+  }
+
+  .ant-picker-range-arrow {
+    @apply !left-[250px];
   }
 }

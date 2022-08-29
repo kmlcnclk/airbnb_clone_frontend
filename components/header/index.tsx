@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import Icon from '../../src/Icon';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { BiMenu } from 'react-icons/bi';
-import { Drawer } from 'antd';
+import { Divider, Drawer } from 'antd';
 import SearchTabPanel from './tools/searchTabPanel';
 import WherePopupMenu from './tools/wherePopupMenu';
 import HeaderExtra from './tools/headerExtra';
+import RightSide from './tools/rightSide';
+import CheckInAndCheckOut from './tools/checkInAndCheckOut';
 
 const Header: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [tabValue, setTabValue] = useState('1');
   const [clickedButton, setClickedButton] = useState<string | null>('1');
+  const [chooseDateState, setChooseDateState] =
+    useState<string>('Choose dates');
+  const [dateFilterState, setDateFilterState] = useState<string>('Exact dates');
 
   const showDrawer = () => {
     setVisible(true);
@@ -42,6 +46,7 @@ const Header: React.FC = () => {
             <SearchTabPanel
               clickedButton={clickedButton}
               setClickedButton={setClickedButton}
+              chooseDateState={chooseDateState}
             />
           )}
           {tabValue === '2' && <p>Bursa</p>}
@@ -49,6 +54,16 @@ const Header: React.FC = () => {
           {visible && tabValue === '1' && clickedButton === '1' && (
             <WherePopupMenu />
           )}
+          {visible &&
+            tabValue === '1' &&
+            (clickedButton === '2' || clickedButton === '3') && (
+              <CheckInAndCheckOut
+                chooseDateState={chooseDateState}
+                setChooseDateState={setChooseDateState}
+                dateFilterState={dateFilterState}
+                setDateFilterState={setDateFilterState}
+              />
+            )}
         </Drawer>
       </header>
       <header className="py-5 px-24 border-b border-[#ebebeb] flex items-center justify-between header">
@@ -60,13 +75,22 @@ const Header: React.FC = () => {
             onClick={showDrawer}
             className="border w-fit flex items-center border-[#dddddd] py-2 px-3 rounded-full shadow-md hover:shadow-lg transition-shadow duration-200 cursor-pointer"
           >
-            <button className="font-semibold text-[#222] border-r px-5 border-[#dddddd]">
+            <button
+              className="font-semibold text-[#222] border-r px-5 border-[#dddddd]"
+              onClick={() => setClickedButton('1')}
+            >
               Anywhere
             </button>
-            <button className="font-semibold text-[#222] border-r px-5 border-[#dddddd]">
+            <button
+              className="font-semibold text-[#222] border-r px-5 border-[#dddddd]"
+              onClick={() => setClickedButton('2')}
+            >
               Any week
             </button>
-            <div className="flex items-center">
+            <div
+              className="flex items-center"
+              onClick={() => setClickedButton('2')}
+            >
               <button className="font-semibold text-[#717171] px-5">
                 Add guests
               </button>
@@ -77,18 +101,7 @@ const Header: React.FC = () => {
           </div>
         </div>
         <div className="w-1/3 flex items-center justify-end">
-          <div className="flex items-center justify-center">
-            <button className="bg-white text-[#222] font-semibold hover:bg-[#f7f7f7] px-5 py-3 rounded-full transition-colors duration-200">
-              Become a Host
-            </button>
-            <button className="mr-1 bg-white text-[#222] font-semibold hover:bg-[#f7f7f7] p-4 rounded-full transition-colors duration-200">
-              <Icon name="language" size="16" />
-            </button>
-            <button className="bg-white space-x-2 border border-[#dddddd] hover:shadow-lg px-2 py-1 rounded-full transition-shadow duration-200 flex justify-center items-center">
-              <BiMenu size="22" />
-              <Icon name="person" size="33" color="#717171" />
-            </button>
-          </div>
+          <RightSide />
         </div>
       </header>
     </>

@@ -11,16 +11,18 @@ const variants = {
 interface SearchTabPanelProps {
   clickedButton: string | null;
   setClickedButton: Function;
+  chooseDateState: string;
 }
 
 const SearchTabPanel: React.FC<SearchTabPanelProps> = ({
   clickedButton,
   setClickedButton,
+  chooseDateState,
 }: SearchTabPanelProps) => {
   return (
     <div className="flex items-center justify-center w-full mt-1">
       <div
-        className={`border flex items-center min-w-max ${
+        className={`border flex items-center w-[848px] ${
           clickedButton != null ? 'bg-[#ebebeb]' : 'bg-white'
         } border-[#ddd] rounded-full cursor-pointer`}
       >
@@ -29,11 +31,10 @@ const SearchTabPanel: React.FC<SearchTabPanelProps> = ({
             clickedButton === '1'
               ? 'bg-white shadow-2xl scale-105'
               : 'hover:bg-[#ebebeb]'
-          } rounded-full px-9 w-[312px] py-2 transition-colors duration-200 where`}
+          } rounded-full px-9 w-2/6 py-2 transition-colors duration-200 where`}
           onClick={() => {
             if (clickedButton === '1') {
               setClickedButton(null);
-              console.log(clickedButton);
             } else {
               setClickedButton('1');
             }
@@ -53,18 +54,38 @@ const SearchTabPanel: React.FC<SearchTabPanelProps> = ({
           />
         </div>
         <div className="bg-[#ddd] h-9 w-[1px]"></div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center w-2/6">
           <div
-            className="flex flex-col hover:bg-[#ebebeb] rounded-full px-9 py-2 transition-colors duration-200"
-            onClick={() => setClickedButton('2')}
+            className={`flex flex-col ${
+              clickedButton === '2'
+                ? 'bg-white shadow-2xl scale-105'
+                : 'hover:bg-[#ebebeb]'
+            } rounded-full px-9 py-2 w-1/2 transition-colors duration-200`}
+            onClick={() => {
+              if (clickedButton === '2') {
+                setClickedButton(null);
+              } else {
+                setClickedButton('2');
+              }
+            }}
           >
             <p className="text-[#222222] mb-0 font-semibold">Check in</p>
             <p className="text-[#656565] mb-0">Add dates</p>
           </div>
           <div className="bg-[#ddd] h-9 w-[1px]"></div>
           <div
-            className="flex flex-col hover:bg-[#ebebeb] rounded-full px-9 py-2 transition-colors duration-200"
-            onClick={() => setClickedButton('3')}
+            className={`flex flex-col ${
+              clickedButton === '3'
+                ? 'bg-white shadow-2xl scale-105'
+                : 'hover:bg-[#ebebeb]'
+            } rounded-full px-9 py-2 w-1/2 transition-colors duration-200`}
+            onClick={() => {
+              if (clickedButton === '3') {
+                setClickedButton(null);
+              } else {
+                setClickedButton('3');
+              }
+            }}
           >
             <p className="text-[#222222] mb-0 font-semibold">Check out</p>
             <p className="text-[#656565] mb-0">Add dates</p>
@@ -72,7 +93,7 @@ const SearchTabPanel: React.FC<SearchTabPanelProps> = ({
         </div>
         <div className="bg-[#ddd] h-9 w-[1px]"></div>
         <div
-          className="flex hover:bg-[#ebebeb] rounded-full pl-9 pr-2 py-2 transition-colors duration-200 w-[262px] justify-between"
+          className="flex hover:bg-[#ebebeb] w-2/6 rounded-full pl-9 pr-2 py-2 transition-colors duration-200 justify-between"
           onClick={() => setClickedButton('4')}
         >
           <div className="w-[170px]">

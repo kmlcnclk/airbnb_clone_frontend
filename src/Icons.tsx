@@ -125,3 +125,28 @@ export const PersonIcon = ({
     </svg>
   );
 };
+
+export const PlusMinusIcon = ({
+  size,
+  color,
+  className,
+}: SVGProps<SVGSVGElement> & { size?: number | string }) => {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      role="presentation"
+      focusable="false"
+      width={size}
+      height={size}
+      fill={color}
+      className={className}
+      stroke={color}
+    >
+      <g fill="none">
+        <path d="M16 4v16m-8-8h16M8 26h16"></path>
+      </g>
+    </svg>
+  );
+};

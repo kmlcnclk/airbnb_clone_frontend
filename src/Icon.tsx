@@ -5,6 +5,7 @@ import {
   LanguageIcon,
   MenuIcon,
   PersonIcon,
+  PlusMinusIcon,
 } from './Icons';
 
 interface IconTypes {
@@ -32,6 +33,7 @@ const Icon: FunctionComponent<IconTypes> = ({
     language: LanguageIcon,
     menu: MenuIcon,
     person: PersonIcon,
+    plusMinus: PlusMinusIcon,
   };
 
   const Component = icons[name];

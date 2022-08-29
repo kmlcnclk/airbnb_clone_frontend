@@ -8,7 +8,7 @@ const WherePopupMenu: React.FC<
 > = ({}: WherePopupMenuProps) => {
   return (
     <div className="relative">
-      <div className="w-auto h-auto bg-white !z-[100000] absolute left-[230px] rounded-3xl top-2 px-14 py-9">
+      <div className="w-auto h-auto bg-white absolute left-[230px] rounded-3xl top-2 px-14 py-9 overflow-y-auto">
         <h5 className="font-bold mb-7">Search by region</h5>
         <div className="grid grid-cols-3 gap-4">
           <HeaderMenuWhereItem url="/flexible.jpg" text="I'm flexible" />
