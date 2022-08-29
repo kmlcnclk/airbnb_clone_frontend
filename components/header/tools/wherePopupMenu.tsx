@@ -15,7 +15,7 @@ const WherePopupMenu: React.FC<
           <HeaderMenuWhereItem url="/europe.webp" text="Europe" />
           <HeaderMenuWhereItem url="/italy.webp" text="Italy" />
           <HeaderMenuWhereItem
-            url="/southeast_asia.webp"
+            url="/Southeast_asia.webp"
             text="Southeast Asia"
           />
           <HeaderMenuWhereItem url="/france.webp" text="France" />
