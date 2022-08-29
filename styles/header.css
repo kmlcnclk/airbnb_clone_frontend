@@ -1,0 +1,34 @@
+.header {
+  .ant-drawer-content-wrapper {
+    @apply !h-[150px];
+  }
+
+  .ant-tabs-tab-btn {
+    @apply !text-black;
+  }
+
+  .ant-drawer-header {
+    @apply !border-b-0;
+  }
+
+  .ant-drawer-header {
+    @apply !py-0 !px-[7px];
+  }
+
+  .ant-drawer-body {
+    @apply !py-0 !px-6;
+  }
+
+  .where:hover .inputHover {
+    @apply !bg-[#ebebeb];
+  }
+
+  .ant-drawer-body,
+  .ant-drawer-content {
+    overflow: initial !important;
+  }
+
+  .ant-tabs-ink-bar{
+    @apply !bg-black;
+  }
+}
