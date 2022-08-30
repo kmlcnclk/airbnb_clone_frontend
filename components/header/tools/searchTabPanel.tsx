@@ -54,43 +54,65 @@ const SearchTabPanel: React.FC<SearchTabPanelProps> = ({
           />
         </div>
         <div className="bg-[#ddd] h-9 w-[1px]"></div>
-        <div className="flex items-center justify-center w-2/6">
-          <div
-            className={`flex flex-col ${
-              clickedButton === '2'
-                ? 'bg-white shadow-2xl scale-105'
-                : 'hover:bg-[#ebebeb]'
-            } rounded-full px-9 py-2 w-1/2 transition-colors duration-200`}
-            onClick={() => {
-              if (clickedButton === '2') {
-                setClickedButton(null);
-              } else {
-                setClickedButton('2');
-              }
-            }}
-          >
-            <p className="text-[#222222] mb-0 font-semibold">Check in</p>
-            <p className="text-[#656565] mb-0">Add dates</p>
+        {chooseDateState === 'Choose dates' ? (
+          <div className="flex items-center justify-center w-2/6">
+            <div
+              className={`flex flex-col ${
+                clickedButton === '2'
+                  ? 'bg-white shadow-2xl scale-105'
+                  : 'hover:bg-[#ebebeb]'
+              } rounded-full px-9 py-2 w-1/2 transition-colors duration-200`}
+              onClick={() => {
+                if (clickedButton === '2') {
+                  setClickedButton(null);
+                } else {
+                  setClickedButton('2');
+                }
+              }}
+            >
+              <p className="text-[#222222] mb-0 font-semibold">Check in</p>
+              <p className="text-[#656565] mb-0">Add dates</p>
+            </div>
+            <div className="bg-[#ddd] h-9 w-[1px]"></div>
+            <div
+              className={`flex flex-col ${
+                clickedButton === '3'
+                  ? 'bg-white shadow-2xl scale-105'
+                  : 'hover:bg-[#ebebeb]'
+              } rounded-full px-9 py-2 w-1/2 transition-colors duration-200`}
+              onClick={() => {
+                if (clickedButton === '3') {
+                  setClickedButton(null);
+                } else {
+                  setClickedButton('3');
+                }
+              }}
+            >
+              <p className="text-[#222222] mb-0 font-semibold">Check out</p>
+              <p className="text-[#656565] mb-0">Add dates</p>
+            </div>
           </div>
-          <div className="bg-[#ddd] h-9 w-[1px]"></div>
-          <div
-            className={`flex flex-col ${
-              clickedButton === '3'
-                ? 'bg-white shadow-2xl scale-105'
-                : 'hover:bg-[#ebebeb]'
-            } rounded-full px-9 py-2 w-1/2 transition-colors duration-200`}
-            onClick={() => {
-              if (clickedButton === '3') {
-                setClickedButton(null);
-              } else {
-                setClickedButton('3');
-              }
-            }}
-          >
-            <p className="text-[#222222] mb-0 font-semibold">Check out</p>
-            <p className="text-[#656565] mb-0">Add dates</p>
+        ) : (
+          <div className="flex items-center justify-center w-2/6">
+            <div
+              className={`flex flex-col ${
+                clickedButton === '2' || clickedButton === '3'
+                  ? 'bg-white shadow-2xl scale-105'
+                  : 'hover:bg-[#ebebeb]'
+              } rounded-full px-9 py-2 w-full transition-colors duration-200`}
+              onClick={() => {
+                if (clickedButton === '2' || clickedButton === '3') {
+                  setClickedButton(null);
+                } else {
+                  setClickedButton('2');
+                }
+              }}
+            >
+              <p className="text-[#222222] mb-0 font-semibold">When</p>
+              <p className="text-[#656565] mb-0">Any week</p>
+            </div>
           </div>
-        </div>
+        )}
         <div className="bg-[#ddd] h-9 w-[1px]"></div>
         <div
           className="flex hover:bg-[#ebebeb] w-2/6 rounded-full pl-9 pr-2 py-2 transition-colors duration-200 justify-between"

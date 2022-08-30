@@ -15,6 +15,9 @@ const Header: React.FC = () => {
   const [chooseDateState, setChooseDateState] =
     useState<string>('Choose dates');
   const [dateFilterState, setDateFilterState] = useState<string>('Exact dates');
+  const [flexibleStayForWeekState, setFlexibleStayForWeekState] =
+    useState<string>('Week');
+  const [goAnyTimeStates, setGoAnyTimeStates] = useState<Array<string>>([]);
 
   const showDrawer = () => {
     setVisible(true);
@@ -62,6 +65,10 @@ const Header: React.FC = () => {
                 setChooseDateState={setChooseDateState}
                 dateFilterState={dateFilterState}
                 setDateFilterState={setDateFilterState}
+                flexibleStayForWeekState={flexibleStayForWeekState}
+                setFlexibleStayForWeekState={setFlexibleStayForWeekState}
+                goAnyTimeStates={goAnyTimeStates}
+                setGoAnyTimeStates={setGoAnyTimeStates}
               />
             )}
         </Drawer>
