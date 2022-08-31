@@ -1,6 +1,8 @@
-import { DatePicker, Image } from 'antd';
-import React from 'react';
+import { DatePicker } from 'antd';
+import React, { useRef } from 'react';
+import ScrollContainer from 'react-indiana-drag-scroll';
 import Icon from '../../../src/Icon';
+import GoAnyTimeItem from './goAnyTimeItem';
 
 interface CheckInAndCheckOutProps {
   chooseDateState: string;
@@ -23,7 +25,22 @@ const CheckInAndCheckOut: React.FC<CheckInAndCheckOutProps> = ({
   goAnyTimeStates,
   setGoAnyTimeStates,
 }: CheckInAndCheckOutProps) => {
-  console.log(goAnyTimeStates);
+  const monthsAndYears = [
+    { month: 'September', year: 2022 },
+    { month: 'October', year: 2022 },
+    { month: 'November', year: 2022 },
+    { month: 'December', year: 2022 },
+    { month: 'January', year: 2023 },
+    { month: 'February', year: 2023 },
+    { month: 'March', year: 2023 },
+    { month: 'April', year: 2023 },
+    { month: 'May', year: 2023 },
+    { month: 'June', year: 2023 },
+    { month: 'July', year: 2023 },
+    { month: 'August', year: 2023 },
+  ];
+
+  const dateRef = useRef(null);
 
   return (
     <div className="relative">
@@ -161,45 +178,21 @@ const CheckInAndCheckOut: React.FC<CheckInAndCheckOutProps> = ({
             <div className="flex items-center justify-center mt-8">
               <h3 className="font-semibold text-lg">Go anytime</h3>
             </div>
-            <div>
-              <div
-                className={`w-[120px] h-[134px] rounded-2xl flex flex-col justify-center items-center space-y-1 my-auto cursor-pointer transition-all duration-200 ${
-                  goAnyTimeStates?.includes('September')
-                    ? 'border-2 border-[#222]'
-                    : 'border border-[#d7d7d7] hover:border-[#222]'
-                }`}
-                onClick={() => {
-                  if (goAnyTimeStates?.includes('September')) {
-                    setGoAnyTimeStates((prevState: Array<string>) =>
-                      prevState.find((prevS: string) => prevS != 'September')
-                        ? prevState.find(
-                            (prevS: string) => prevS != 'September'
-                          )
-                        : []
-                    );
-                  } else {
-                    setGoAnyTimeStates((prevState: Array<string> | any) => [
-                      ...prevState,
-                      'September',
-                    ]);
-                  }
-                }}
-              >
-                <Image
-                  src={
-                    goAnyTimeStates?.includes('September')
-                      ? 'https://a0.muscache.com/pictures/33e22c88-92bf-47be-847a-98a7e374d78b.jpg'
-                      : 'https://a0.muscache.com/pictures/cf82c9bc-520a-4486-9be4-1f0927972381.jpg'
-                  }
-                  alt="Calendar"
-                  width={32}
-                  preview={false}
-                  height={32}
+            <ScrollContainer
+              innerRef={dateRef}
+              className="flex space-x-[9px] mt-5 scroll-smooth;"
+              vertical={false}
+            >
+              {monthsAndYears.map((item, i) => (
+                <GoAnyTimeItem
+                  key={i}
+                  month={item.month}
+                  year={item.year}
+                  goAnyTimeStates={goAnyTimeStates}
+                  setGoAnyTimeStates={setGoAnyTimeStates}
                 />
-                <p>September</p>
-                <p>2022</p>
-              </div>
-            </div>
+              ))}
+            </ScrollContainer>
           </div>
         )}
       </div>
