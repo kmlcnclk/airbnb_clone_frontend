@@ -1,8 +1,9 @@
 import { DatePicker } from 'antd';
-import React, { useRef } from 'react';
-import ScrollContainer from 'react-indiana-drag-scroll';
+import React from 'react';
 import Icon from '../../../src/Icon';
 import GoAnyTimeItem from './goAnyTimeItem';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper';
 
 interface CheckInAndCheckOutProps {
   chooseDateState: string;
@@ -39,8 +40,6 @@ const CheckInAndCheckOut: React.FC<CheckInAndCheckOutProps> = ({
     { month: 'July', year: 2023 },
     { month: 'August', year: 2023 },
   ];
-
-  const dateRef = useRef(null);
 
   return (
     <div className="relative">
@@ -178,21 +177,25 @@ const CheckInAndCheckOut: React.FC<CheckInAndCheckOutProps> = ({
             <div className="flex items-center justify-center mt-8">
               <h3 className="font-semibold text-lg">Go anytime</h3>
             </div>
-            <ScrollContainer
-              innerRef={dateRef}
-              className="flex space-x-[9px] mt-5 scroll-smooth;"
-              vertical={false}
+            <Swiper
+              slidesPerView={6}
+              spaceBetween={10}
+              slidesPerGroup={2}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              className="mySwiper"
             >
               {monthsAndYears.map((item, i) => (
-                <GoAnyTimeItem
-                  key={i}
-                  month={item.month}
-                  year={item.year}
-                  goAnyTimeStates={goAnyTimeStates}
-                  setGoAnyTimeStates={setGoAnyTimeStates}
-                />
+                <SwiperSlide key={i}>
+                  <GoAnyTimeItem
+                    month={item.month}
+                    year={item.year}
+                    goAnyTimeStates={goAnyTimeStates}
+                    setGoAnyTimeStates={setGoAnyTimeStates}
+                  />
+                </SwiperSlide>
               ))}
-            </ScrollContainer>
+            </Swiper>
           </div>
         )}
       </div>

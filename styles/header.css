@@ -39,4 +39,29 @@
   .ant-picker-range-arrow {
     @apply !left-[250px];
   }
+
+  .navigate {
+    @apply absolute z-10 top-[93.24px] bg-white h-10 w-10 drop-shadow-lg -translate-y-1/2 text-black flex justify-center items-center rounded-full;
+  }
+
+  .next-navigate {
+    @apply -right-5;
+  }
+
+  .prev-navigate {
+    @apply -left-5;
+  }
+
+  .swiper-button-prev {
+    @apply left-0;
+  }
+
+  .swiper-button-next {
+    @apply right-0;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    @apply bg-white shadow-lg rounded-full p-3 top-[47%] border border-[#d7d7d7];
+  }
 }

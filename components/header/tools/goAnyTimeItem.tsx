@@ -14,8 +14,6 @@ const GoAnyTimeItem: React.FC<GoAnyTimeItemProps> = ({
   goAnyTimeStates,
   setGoAnyTimeStates,
 }: GoAnyTimeItemProps) => {
-  console.log(goAnyTimeStates);
-
   return (
     <div
       className={`min-w-[120px] min-h-[134px] rounded-2xl flex flex-col justify-center items-center space-y-1 my-auto cursor-pointer transition-all duration-200 ${

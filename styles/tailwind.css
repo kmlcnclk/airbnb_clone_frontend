@@ -2,3 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import './header.css';
+
+:root {
+  --swiper-navigation-size: 12px !important;
+  --swiper-theme-color: black !important;
+}
