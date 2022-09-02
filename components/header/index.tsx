@@ -7,6 +7,7 @@ import WherePopupMenu from './tools/wherePopupMenu';
 import HeaderExtra from './tools/headerExtra';
 import RightSide from './tools/rightSide';
 import CheckInAndCheckOut from './tools/checkInAndCheckOut';
+import WhoPopupMenu from './tools/whoPopupMenu';
 
 const Header: React.FC = () => {
   const [visible, setVisible] = useState(false);
@@ -18,6 +19,10 @@ const Header: React.FC = () => {
   const [flexibleStayForWeekState, setFlexibleStayForWeekState] =
     useState<string>('Week');
   const [goAnyTimeStates, setGoAnyTimeStates] = useState<Array<string>>([]);
+  const [adultCounter, setAdultCounter] = useState<number>(0);
+  const [childCounter, setChildCounter] = useState<number>(0);
+  const [infantCounter, setInfantCounter] = useState<number>(0);
+  const [petCounter, setPetCounter] = useState<number>(0);
 
   const showDrawer = () => {
     setVisible(true);
@@ -50,6 +55,7 @@ const Header: React.FC = () => {
               clickedButton={clickedButton}
               setClickedButton={setClickedButton}
               chooseDateState={chooseDateState}
+              flexibleStayForWeekState={flexibleStayForWeekState}
             />
           )}
           {tabValue === '2' && <p>Bursa</p>}
@@ -58,7 +64,7 @@ const Header: React.FC = () => {
             <WherePopupMenu />
           )}
           {visible &&
-            tabValue === '1' &&
+            // tabValue === '1' &&
             (clickedButton === '2' || clickedButton === '3') && (
               <CheckInAndCheckOut
                 chooseDateState={chooseDateState}
@@ -69,6 +75,20 @@ const Header: React.FC = () => {
                 setFlexibleStayForWeekState={setFlexibleStayForWeekState}
                 goAnyTimeStates={goAnyTimeStates}
                 setGoAnyTimeStates={setGoAnyTimeStates}
+              />
+            )}
+          {visible &&
+            // tabValue === '1' &&
+            clickedButton === '4' && (
+              <WhoPopupMenu
+                adultCounter={adultCounter}
+                setAdultCounter={setAdultCounter}
+                childCounter={childCounter}
+                setChildCounter={setChildCounter}
+                infantCounter={infantCounter}
+                setIinfantCounter={setInfantCounter}
+                petCounter={petCounter}
+                setPetCounter={setPetCounter}
               />
             )}
         </Drawer>

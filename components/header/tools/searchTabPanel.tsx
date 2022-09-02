@@ -12,12 +12,14 @@ interface SearchTabPanelProps {
   clickedButton: string | null;
   setClickedButton: Function;
   chooseDateState: string;
+  flexibleStayForWeekState: string;
 }
 
 const SearchTabPanel: React.FC<SearchTabPanelProps> = ({
   clickedButton,
   setClickedButton,
   chooseDateState,
+  flexibleStayForWeekState,
 }: SearchTabPanelProps) => {
   return (
     <div className="flex items-center justify-center w-full mt-1">
@@ -109,14 +111,26 @@ const SearchTabPanel: React.FC<SearchTabPanelProps> = ({
               }}
             >
               <p className="text-[#222222] mb-0 font-semibold">When</p>
-              <p className="text-[#656565] mb-0">Any week</p>
+              <p className="text-[#656565] mb-0">
+                Any {flexibleStayForWeekState.toLocaleLowerCase()}
+              </p>
             </div>
           </div>
         )}
         <div className="bg-[#ddd] h-9 w-[1px]"></div>
         <div
-          className="flex hover:bg-[#ebebeb] w-2/6 rounded-full pl-9 pr-2 py-2 transition-colors duration-200 justify-between"
-          onClick={() => setClickedButton('4')}
+          className={`flex ${
+            clickedButton === '4'
+              ? 'bg-white shadow-2xl scale-105'
+              : 'hover:bg-[#ebebeb]'
+          } w-2/6 rounded-full pl-9 pr-2 py-2 transition-colors duration-200 justify-between`}
+          onClick={() => {
+            if (clickedButton === '4') {
+              setClickedButton(null);
+            } else {
+              setClickedButton('4');
+            }
+          }}
         >
           <div className="w-[170px]">
             <p className="text-[#222222] mb-0 font-semibold">Who</p>

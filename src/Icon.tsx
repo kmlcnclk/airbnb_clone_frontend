@@ -8,6 +8,8 @@ import {
   PlusMinusIcon,
   NextIcon,
   PrevIcon,
+  MinusIcon,
+  PlusIcon,
 } from './Icons';
 
 interface IconTypes {
@@ -38,6 +40,8 @@ const Icon: FunctionComponent<IconTypes> = ({
     plusMinus: PlusMinusIcon,
     next: NextIcon,
     prev: PrevIcon,
+    minus: MinusIcon,
+    plus: PlusIcon,
   };
 
   const Component = icons[name];

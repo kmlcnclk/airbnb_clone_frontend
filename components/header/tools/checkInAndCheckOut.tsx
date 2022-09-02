@@ -138,7 +138,9 @@ const CheckInAndCheckOut: React.FC<CheckInAndCheckOutProps> = ({
         ) : (
           <div>
             <div className="flex items-center justify-center mt-8">
-              <h3 className="font-semibold text-lg">Stay for a week</h3>
+              <h3 className="font-semibold text-lg">
+                Stay for a {flexibleStayForWeekState.toLocaleLowerCase()}
+              </h3>
             </div>
             <div className="space-x-2 mx-3 mb-3 flex items-center justify-center">
               <button
