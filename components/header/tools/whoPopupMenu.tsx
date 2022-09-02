@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from '../../../src/Icon';
 import { Divider } from 'antd';
 import WhoPopupMenuItem from './whoPopupMenuItem';
 

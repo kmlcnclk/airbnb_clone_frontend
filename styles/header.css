@@ -64,4 +64,21 @@
   .swiper-button-next {
     @apply bg-white shadow-lg rounded-full p-3 top-[47%] border border-[#d7d7d7];
   }
+
+  .right-side {
+    .ant-dropdown-menu {
+      @apply rounded-xl py-1 !w-[248px] !top-2;
+    }
+
+    .ant-dropdown-menu-item {
+      @apply px-4 py-[10px];
+    }
+
+    .ant-dropdown-menu-item:first-child {
+      @apply font-semibold;
+    }
+    .ant-dropdown-menu-item:nth-child(2) {
+      @apply border-b border-[#ebebeb];
+    }
+  }
 }

@@ -3,22 +3,28 @@ import { Space, Tabs } from 'antd';
 import Icon from '../../../src/Icon';
 import { BiMenu } from 'react-icons/bi';
 import RightSide from './rightSide';
+import { useRouter } from 'next/router';
 
 interface HeaderExtraProps {
   setTabValue: Function;
+  setClickedButton: Function;
 }
 // header daki iconu sonra become a host tarafını falan componentlere ayır
 const HeaderExtra: React.FC<HeaderExtraProps> = ({
   setTabValue,
+  setClickedButton,
 }: HeaderExtraProps) => {
+  const router = useRouter();
+
   const tabChangeFunc = (key: string) => {
     if (key === '1') {
       setTabValue('1');
     } else if (key === '2') {
       setTabValue('2');
     } else if (key === '3') {
-      setTabValue('3');
+      router.push('https://www.airbnb.com/s/experiences/online');
     }
+    setClickedButton(null);
   };
 
   return (

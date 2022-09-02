@@ -8,6 +8,7 @@ import HeaderExtra from './tools/headerExtra';
 import RightSide from './tools/rightSide';
 import CheckInAndCheckOut from './tools/checkInAndCheckOut';
 import WhoPopupMenu from './tools/whoPopupMenu';
+import DatePopupMenu from './tools/datePopupMenu';
 
 const Header: React.FC = () => {
   const [visible, setVisible] = useState(false);
@@ -48,7 +49,12 @@ const Header: React.FC = () => {
           onClose={onClose}
           visible={visible}
           className="!mt-1"
-          extra={<HeaderExtra setTabValue={setTabValue} />}
+          extra={
+            <HeaderExtra
+              setTabValue={setTabValue}
+              setClickedButton={setClickedButton}
+            />
+          }
         >
           {tabValue === '1' && (
             <SearchTabPanel
@@ -56,41 +62,44 @@ const Header: React.FC = () => {
               setClickedButton={setClickedButton}
               chooseDateState={chooseDateState}
               flexibleStayForWeekState={flexibleStayForWeekState}
+              tabValue={tabValue}
             />
           )}
-          {tabValue === '2' && <p>Bursa</p>}
-          {tabValue === '3' && <p>Ceyhan</p>}
-          {visible && tabValue === '1' && clickedButton === '1' && (
-            <WherePopupMenu />
+          {tabValue === '2' && (
+            <SearchTabPanel
+              clickedButton={clickedButton}
+              setClickedButton={setClickedButton}
+              chooseDateState={chooseDateState}
+              flexibleStayForWeekState={flexibleStayForWeekState}
+              tabValue={tabValue}
+            />
           )}
-          {visible &&
-            // tabValue === '1' &&
-            (clickedButton === '2' || clickedButton === '3') && (
-              <CheckInAndCheckOut
-                chooseDateState={chooseDateState}
-                setChooseDateState={setChooseDateState}
-                dateFilterState={dateFilterState}
-                setDateFilterState={setDateFilterState}
-                flexibleStayForWeekState={flexibleStayForWeekState}
-                setFlexibleStayForWeekState={setFlexibleStayForWeekState}
-                goAnyTimeStates={goAnyTimeStates}
-                setGoAnyTimeStates={setGoAnyTimeStates}
-              />
-            )}
-          {visible &&
-            // tabValue === '1' &&
-            clickedButton === '4' && (
-              <WhoPopupMenu
-                adultCounter={adultCounter}
-                setAdultCounter={setAdultCounter}
-                childCounter={childCounter}
-                setChildCounter={setChildCounter}
-                infantCounter={infantCounter}
-                setIinfantCounter={setInfantCounter}
-                petCounter={petCounter}
-                setPetCounter={setPetCounter}
-              />
-            )}
+          {visible && clickedButton === '1' && <WherePopupMenu />}
+          {visible && (clickedButton === '2' || clickedButton === '3') && (
+            <CheckInAndCheckOut
+              chooseDateState={chooseDateState}
+              setChooseDateState={setChooseDateState}
+              dateFilterState={dateFilterState}
+              setDateFilterState={setDateFilterState}
+              flexibleStayForWeekState={flexibleStayForWeekState}
+              setFlexibleStayForWeekState={setFlexibleStayForWeekState}
+              goAnyTimeStates={goAnyTimeStates}
+              setGoAnyTimeStates={setGoAnyTimeStates}
+            />
+          )}
+          {visible && clickedButton === '4' && (
+            <WhoPopupMenu
+              adultCounter={adultCounter}
+              setAdultCounter={setAdultCounter}
+              childCounter={childCounter}
+              setChildCounter={setChildCounter}
+              infantCounter={infantCounter}
+              setIinfantCounter={setInfantCounter}
+              petCounter={petCounter}
+              setPetCounter={setPetCounter}
+            />
+          )}
+          {visible && clickedButton === '5' && <DatePopupMenu />}
         </Drawer>
       </header>
       <header className="py-5 px-24 border-b border-[#ebebeb] flex items-center justify-between header">
