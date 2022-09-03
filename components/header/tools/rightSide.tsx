@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from '../../../src/Icon';
 import { BiMenu } from 'react-icons/bi';
 import { Dropdown, Menu } from 'antd';
+import NextLink from 'next/link';
 
 const menu = (
   <Menu
@@ -33,9 +34,13 @@ const menu = (
 const RightSide: React.FC = () => {
   return (
     <div className="flex items-center justify-center right-side">
-      <button className="bg-white text-[#222] font-semibold hover:bg-[#f7f7f7] px-5 py-3 rounded-full transition-colors duration-200">
-        Become a Host
-      </button>
+      <NextLink href="https://www.airbnb.com/host/homes">
+        <a target="_blank">
+          <button className="bg-white text-[#222] font-semibold hover:bg-[#f7f7f7] px-5 py-3 rounded-full transition-colors duration-200">
+            Become a Host
+          </button>
+        </a>
+      </NextLink>
       <button className="mr-1 bg-white text-[#222] font-semibold hover:bg-[#f7f7f7] p-4 rounded-full transition-colors duration-200">
         <Icon name="language" size="16" />
       </button>

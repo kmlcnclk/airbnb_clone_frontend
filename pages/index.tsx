@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Header from '../components/header';
+import NavFilter from '../components/navFilter';
 
 const Home: NextPage = () => {
   return (
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/airbnb_logo.png" />
       </Head>
       <Header />
+      <NavFilter />
     </div>
   );
 };

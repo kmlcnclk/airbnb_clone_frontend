@@ -1,0 +1,14 @@
+.nav {
+  .swiper-button-prev {
+    @apply left-0;
+  }
+
+  .swiper-button-next {
+    @apply right-0;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    @apply bg-white shadow-lg rounded-full p-3 top-[35%] border border-[#d7d7d7];
+  }
+}
