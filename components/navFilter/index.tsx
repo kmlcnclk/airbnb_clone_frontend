@@ -19,6 +19,7 @@ const NavFilter = () => {
       >
         {filterData.map((item, i) => (
           <SwiperSlide
+            key={i}
             className={`flex flex-col items-center justify-center space-y-2 ${
               filterState === item.text
                 ? 'border-b-2 border-black'
