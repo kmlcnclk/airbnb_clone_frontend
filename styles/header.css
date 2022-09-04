@@ -52,6 +52,10 @@
   .swiper-button-next {
     @apply bg-white shadow-lg rounded-full p-3 top-[47%] border border-[#d7d7d7];
   }
+  
+  .swiper-button-disabled {
+    display: none;
+  }
 
   .right-side {
     .ant-dropdown-menu {

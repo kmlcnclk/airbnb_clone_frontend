@@ -10,6 +10,9 @@ import {
   PrevIcon,
   MinusIcon,
   PlusIcon,
+  StarIcon,
+  HeartIcon,
+  FilterIcon,
 } from './Icons';
 
 interface IconTypes {
@@ -42,6 +45,9 @@ const Icon: FunctionComponent<IconTypes> = ({
     prev: PrevIcon,
     minus: MinusIcon,
     plus: PlusIcon,
+    star: StarIcon,
+    heart: HeartIcon,
+    filter: FilterIcon,
   };
 
   const Component = icons[name];

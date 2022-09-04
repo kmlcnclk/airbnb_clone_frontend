@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../../src/Icon';
+import Icon from '../../../../src/Icon';
 import { BiMenu } from 'react-icons/bi';
 import { Dropdown, Menu } from 'antd';
 import NextLink from 'next/link';

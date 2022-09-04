@@ -1,15 +1,15 @@
-.nav {
+.main {
   .swiper-button-prev {
-    @apply left-0;
+    @apply left-1;
   }
 
   .swiper-button-next {
-    @apply right-0;
+    @apply right-1;
   }
 
   .swiper-button-prev,
   .swiper-button-next {
-    @apply bg-white shadow-lg rounded-full p-3 top-[35%] border border-[#d7d7d7];
+    @apply bg-white shadow-lg rounded-full p-3 top-[50%] border border-[#d7d7d7];
   }
 
   .swiper-button-disabled {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../../src/Icon';
+import Icon from '../../../../src/Icon';
 
 interface WhoPopupMenuItemProps {
   state: number;

@@ -3,8 +3,14 @@
 @import 'tailwindcss/utilities';
 @import './header.css';
 @import './nav.css';
+@import './card.css';
 
 :root {
   --swiper-navigation-size: 12px !important;
   --swiper-theme-color: black !important;
+}
+
+html,
+body {
+  color: #222222;
 }

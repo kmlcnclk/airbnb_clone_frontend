@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import { Image } from 'antd';
-import filterData from '../../src/filterData.json';
+import filterData from '../../../src/filterData.json';
+import Icon from '../../../src/Icon';
 
 const NavFilter = () => {
   const [filterState, setFilterState] = useState('National parks');
 
   return (
-    <nav className="nav px-24 py-5">
+    <nav className="nav px-24 py-5 flex items-center justify-between space-x-5">
       <Swiper
         slidesPerView={11}
         spaceBetween={5}
         slidesPerGroup={7}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
       >
         {filterData.map((item, i) => (
           <SwiperSlide
@@ -38,6 +38,12 @@ const NavFilter = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div>
+        <button className="flex items-center mb-[14px] justify-center px-4 py-3 space-x-3 border border-[#ddd] rounded-xl">
+          <Icon name="filter" color="#222" />
+          <span className='text-sm'>Filters</span>
+        </button>
+      </div>
     </nav>
   );
 };

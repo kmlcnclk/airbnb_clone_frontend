@@ -1,6 +1,6 @@
 import { DatePicker } from 'antd';
 import React from 'react';
-import Icon from '../../../src/Icon';
+import Icon from '../../../../src/Icon';
 import GoAnyTimeItem from './goAnyTimeItem';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper';
