@@ -1,18 +1,35 @@
 .main {
-  .swiper-button-prev {
-    @apply left-1;
-  }
+  .swiper {
+    &:hover {
+      .swiper-button-prev,
+      .swiper-button-next {
+        @apply opacity-100 duration-300;
+      }
+    }
 
-  .swiper-button-next {
-    @apply right-1;
-  }
+    .swiper-button-prev {
+      @apply left-1;
+    }
 
-  .swiper-button-prev,
-  .swiper-button-next {
-    @apply bg-white shadow-lg rounded-full p-3 top-[50%] border border-[#d7d7d7];
-  }
+    .swiper-button-next {
+      @apply right-1;
+    }
 
-  .swiper-button-disabled {
-    display: none;
+    .swiper-button-prev,
+    .swiper-button-next {
+      @apply bg-white shadow-lg rounded-full p-3 top-[50%] border border-[#d7d7d7] opacity-0;
+    }
+
+    .swiper-button-prev::after {
+      @apply pr-[2px];
+    }
+
+    .swiper-button-next::after {
+      @apply pl-[2px];
+    }
+
+    .swiper-button-disabled {
+      display: none;
+    }
   }
 }

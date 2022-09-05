@@ -4,7 +4,7 @@ import cardData from '../../../src/cardData.json';
 
 const Main = () => {
   return (
-    <main className="main">
+    <main className="main pb-10">
       <div className="grid grid-cols-4 gap-6 px-24">
         {cardData?.map((data, i) => (
           <CardItem key={i} {...data} />
