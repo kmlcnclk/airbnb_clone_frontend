@@ -1,6 +1,6 @@
 import React from 'react';
 import { Space, Tabs } from 'antd';
-import Icon from '../../../src/Icon';
+import Icon from '../../../../src/Icon';
 import { BiMenu } from 'react-icons/bi';
 import RightSide from './rightSide';
 import { useRouter } from 'next/router';
